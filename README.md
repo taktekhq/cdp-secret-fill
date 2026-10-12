@@ -1,6 +1,6 @@
 # cdp-secret-fill
 
-Three small Node scripts for an agent (or you) driving a real Chrome over the DevTools protocol, when a
+Small Node scripts for an agent (or you) driving a real Chrome over the DevTools protocol, when a
 password has to go into a login form **without ever appearing in a log, a transcript or a screenshot**.
 
 - `bw-copy-password.mjs "Item name" [username]`: opens the Bitwarden extension's popup page in that
@@ -11,6 +11,9 @@ password has to go into a login form **without ever appearing in a log, a transc
   form embedded in another site.
 - `paste.mjs TARGET_ID`: types the clipboard into the focused field with `Input.insertText`, then empties
   the clipboard.
+- `bw-folder.mjs TARGET_ID CIPHER_ID FOLDER`: moves a Bitwarden item into a folder from the extension's popup
+  tab, then re-opens the item and prints its name and folder so you can check it landed. Prints no
+  secrets. The cipher id is in the popup URL when the item is open (`#/view-cipher?cipherId=...`).
 
 Typical flow: copy the password, click into the password field, paste, then submit however you like.
 
