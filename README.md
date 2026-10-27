@@ -14,6 +14,9 @@ password has to go into a login form **without ever appearing in a log, a transc
 - `bw-folder.mjs TARGET_ID CIPHER_ID FOLDER`: moves a Bitwarden item into a folder from the extension's popup
   tab, then re-opens the item and prints its name and folder so you can check it landed. Prints no
   secrets. The cipher id is in the popup URL when the item is open (`#/view-cipher?cipherId=...`).
+- `bw-setpw.mjs TARGET_ID CIPHER_ID FILE`: replaces a Bitwarden login's password with the contents of
+  FILE from the extension's popup tab, saves, re-opens the item and prints only its name and whether the
+  saved length matches. Use it when a password changes, so the vault never drifts from your secrets store.
 
 Typical flow: copy the password, click into the password field, paste, then submit however you like.
 
